@@ -167,8 +167,8 @@ const MobileMenuWrapper = styled.nav<{ $open: boolean }>`
 
   width: 100%;
   height: 100vh;
-
-  background-color: rgba(34, 5, 46, 0.95);
+    // Esta variable soft viene el index.css,establecido como variable
+  background-color: var(--soft-bg);
   backdrop-filter: blur(10px);
 
   z-index: 1000;
