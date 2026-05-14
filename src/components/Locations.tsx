@@ -7,7 +7,7 @@ import LocacionesVideo from "../assets/videos/Locaciones.mp4";
 import { VideoLscModal } from "./ui/VideoLscModal";
 //import { BotonLsc } from "./ui/BotonLsc";
 //import { useMenu } from "../context/MenuContext"
-import { device } from "../estilos/breakpoints";
+import { device } from "../pantallas/breakpoints";
 
 export const Locaciones = () => {
     const [showModal, setShowModal] = useState(true);

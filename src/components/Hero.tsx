@@ -295,8 +295,6 @@ const DownloadWrapperButton = styled.button`
   cursor: pointer;
   overflow: hidden;
   /* position: relative; */
-
-  font-family: "Arial", sans-serif;
   text-align: center;
 
   display: flex;

@@ -1,7 +1,7 @@
 import { useState } from "react";
 import styled, { keyframes } from "styled-components";
 import { slides } from "../data/locationsData";
-import { device } from "../estilos/breakpoints";
+import { device } from "../pantallas/breakpoints";
 
 type Slide = {
     titulo: string;

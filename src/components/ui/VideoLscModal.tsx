@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { useState, useRef } from "react";
-import { device } from "../../estilos/breakpoints";
+import { device } from "../../pantallas/breakpoints";
 
 interface VideoLscModalProps {
   videoSrc: string;

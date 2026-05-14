@@ -1,10 +1,11 @@
 import styled from "styled-components";
-import { X } from "lucide-react";
+
 import mapaTunja from "../assets/img/mapaTunja.webp";
 import { lugares } from "../data/mapaData";
 import pin from "../assets/img/pin.webp";
-import { device } from "../estilos/breakpoints";
+import { device } from "../pantallas/breakpoints";
 import { useState } from "react";
+import { XIcon } from "lucide-react";
 interface ModalMapaProps {
     open: boolean;
     onClose: () => void;
@@ -19,7 +20,7 @@ export const ModalMapa = ({ open, onClose }: ModalMapaProps) => {
             <Modal onClick={(e) => e.stopPropagation()}>
 
                 <Cerrar onClick={onClose}>
-                    <X size={26} />
+                    <XIcon size={26} />
                 </Cerrar>
 
 

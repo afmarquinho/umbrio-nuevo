@@ -2,7 +2,7 @@ import { useState } from "react";
 import styled from "styled-components";
 import { personajes } from "../data/personajesData";
 import pergamino from "../assets/img/pergamino1.webp"
-import { device } from "../estilos/breakpoints";
+import { device } from "../pantallas/breakpoints";
 
 export const CarruselPersonajes = () => {
   const [activo, setActivo] = useState(0);

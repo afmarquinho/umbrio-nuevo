@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { device } from "../../estilos/breakpoints";
+import { device } from "../../pantallas/breakpoints";
 
 interface BotonProps {
   onClick: () => void;
