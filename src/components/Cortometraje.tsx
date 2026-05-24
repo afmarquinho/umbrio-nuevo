@@ -1,9 +1,12 @@
 import styled from "styled-components";
+import fondoCorto from "../assets/img/fondoCorto.webp";
+import portadaTrailler from "../assets/img/portadaTrailler.webp";
 import { device } from "../pantallas/breakpoints";
 
 export const Cortometraje = () => {
   return (
-    <>
+    
+    < CortometrajeSection id = "Corto">
       <h2>Cortometraje</h2>
       <h3>Ver Trailer</h3>
       <ShortWrapper>
@@ -47,10 +50,65 @@ export const Cortometraje = () => {
           </div>
         </div> */}
       </WatchTrailerWrapper>
-    </>
+    </CortometrajeSection>
   );
 };
 
+const CortometrajeSection = styled.section`
+  position: relative;
+
+  width: 100%;
+  min-height: 100vh;
+
+  padding: 40px 16px;
+
+  background-image: url(${fondoCorto});
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  overflow: hidden;
+
+  &::before {
+    content: "";
+
+    position: absolute;
+    inset: 0;
+
+    background: rgba(0, 0, 0, 0.45);
+
+    z-index: 0;
+  }
+
+  > * {
+    position: relative;
+    z-index: 1;
+  }
+
+  h2 {
+    text-align: center;
+    color: #f4a009;
+    font-family: "Amarante";
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+  }
+
+  @media ${device.tablet} {
+    padding: 60px 30px;
+
+    h2 {
+      font-size: 2rem;
+    }
+  }
+
+  @media ${device.laptop} {
+    padding: 80px 60px;
+
+    h2 {
+      font-size: 3rem;
+    }
+  }
+`;
 const ShortWrapper = styled.div`
   display: flex;
   width: 100%;
@@ -58,60 +116,141 @@ const ShortWrapper = styled.div`
   justify-content: center;
   align-items: center;
   gap: 20px;
+
   @media ${device.tablet} {
     flex-direction: row;
+     gap: 30px;
+  }
+
+  @media ${device.laptop} {
+    gap: 40px;
+  
   }
 `;
+
 const ShortTrailer = styled.div`
   width: 100%;
+  max-width: 1000px;
   aspect-ratio: 16 / 9;
-  background: #000;
+
+  background-image: url(${portadaTrailler});
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  background-color: #000;
+
   display: flex;
   justify-content: center;
   align-items: center;
-  color: #fff;
-  font-size: 18px;
+
+  color: #f6e9c7;
+  font-size: 1rem;
   font-weight: 500;
+  font-family: "Amarante";
+
+  border-radius: 16px;
+  overflow: hidden;
+
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+
   @media ${device.tablet} {
-    width: 50%;
+   width: 85%;
+   border-radius: 20px;
+  }
+
+   @media ${device.laptop} {
+    width: 75%;
+  }
+
+  @media ${device.desktop} {
+    width: 65%;
   }
 `;
 
 const Legend = styled.p`
-  font-size: 14px;
+  font-size: 0.9rem;
   font-weight: 500;
+  font-family: "Amarante";
   text-align: justify;
-  width: 90%;
+  width: 95%;
   max-width: 1200px;
-  margin: 10px auto;
+  margin: 20px auto;
+  color: #f6e9c7;
+  line-height: 1.7;
+
 
   @media ${device.tablet} {
-    font-size: 16px;
+    font-size: 1rem;
+    width: 90%;
     margin: 26px auto;
   }
   @media ${device.laptop} {
-    font-size: 18px;
+    font-size: 1.1rem;
+    width: 80%;
   }
 `;
-// const Pin = styled.img`
 
-//     width: 24px;
-//     height: 24px;
-//     background-size: contain;
-//     background-repeat: no-repeat;
-//     transform: translate(-50%, -100%);
-// `;
 
 const WatchTrailerWrapper = styled.div`
   margin: 20px auto;
-  width: 200PX;
-  max-width: 1200px;
+
+  width: 160px;
+
   display: flex;
   flex-direction: column;
-  background: var(--soft-bg);
-  border: 1px solid var(--accent);
-  border-radius: 8px;
-  padding: 20px;
+
+  background: rgba(20, 10, 25, 0.85);
+
+  border: 1px solid #f4a009;
+  border-radius: 14px;
+
+  padding: 14px;
+
   text-align: center;
-  color: var(--accent);
+
+  color: #f4a009;
+
+  font-family: "Amarante", serif;
+
+  transition: all 0.3s ease;
+
+  cursor: pointer;
+
+  div {
+    font-size: 0.9rem;
+    line-height: 1.3;
+  }
+
+  span {
+    font-size: 1rem;
+    font-weight: bold;
+    letter-spacing: 1px;
+  }
+
+  &:hover {
+    transform: scale(1.05);
+
+    box-shadow:
+      0 0 15px rgba(244, 160, 9, 0.5),
+      0 0 30px rgba(164, 7, 196, 0.4);
+  }
+
+  @media ${device.tablet} {
+    width: 190px;
+    padding: 18px;
+
+    div {
+      font-size: 1rem;
+    }
+
+    span {
+      font-size: 1.1rem;
+    }
+  }
+
+  @media ${device.laptop} {
+    width: 220px;
+    padding: 20px;
+  }
 `;

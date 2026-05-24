@@ -1,11 +1,11 @@
 import styled from "styled-components";
 import { device } from "../pantallas/breakpoints";
 
-export const Videojuego = () => {
+export const VideoJuego = () => {
   return (
-    <VideojuegoWrapper>
+    <VideoJuegoWrapper>
       <h3>VideoJuego</h3>
-      <VideojuegoButtonWrapper>
+      <VideoJuegoButtonWrapper>
         <button>
           Descargar
           <br />
@@ -39,14 +39,14 @@ export const Videojuego = () => {
             ))}
           </div>
         </div> */}
-      </VideojuegoButtonWrapper>
-    </VideojuegoWrapper>
+      </VideoJuegoButtonWrapper>
+    </VideoJuegoWrapper>
   );
 };
 
-const VideojuegoWrapper = styled.div`
+const VideoJuegoWrapper = styled.div`
   background: #e6a5a5;
-  height: 700px;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -54,6 +54,7 @@ const VideojuegoWrapper = styled.div`
   h3 {
     background: var(--soft-bg);
   }
+  
   @media ${device.tablet} {
   }
   @media ${device.laptop} {
@@ -62,13 +63,14 @@ const VideojuegoWrapper = styled.div`
   }
 `;
 
-const VideojuegoButtonWrapper = styled.div`
+
+const VideoJuegoButtonWrapper = styled.div`
   margin: 20px auto;
   text-align: center;
   color: var(--accent);
   font-size: 16px;
   display: flex;
-    flex-direction: column;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   gap:20px;
