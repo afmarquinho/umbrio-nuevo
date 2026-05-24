@@ -130,17 +130,23 @@ const Contenido = styled.div`
 `;
 
 const Pergamino = styled.div`
-  width: 100%;             
+  width: 90%;
+  max-width: 400px;
+
+  aspect-ratio: 3 / 2;
+
   margin: 0 auto;
-  padding: 20px;         
+  padding: 20px;
 
   background-image: url(${pergamino});
-  background-size: 100% 100%;
+  background-size: contain;
+  background-position: center;
   background-repeat: no-repeat;
 
   display: flex;
   align-items: center;
   justify-content: center;
+
 
   @media ${device.tablet} {
     width: 85%;
@@ -149,19 +155,22 @@ const Pergamino = styled.div`
 
   @media ${device.laptop} {
     position: absolute;
-    bottom: 80px;
-    left: 90px;
+    bottom: 30px;
+    right: 34% ;
     width: 500px;
     height: 350px;
   }
 
-   @media ${device.desktop} {
-   max-width: none;
-    bottom: 40px;
-    left: 140px;
-    width: 600px;
-    height: 400px;
-  }
+  @media ${device.desktop} {
+  max-width: none;
+
+  bottom: clamp(10px, 1.5vh, 30px);
+
+  right: 38%;
+
+  width: 600px;
+  height: 400px;
+}
 `;
 
 const Texto = styled.div`
@@ -169,25 +178,32 @@ const Texto = styled.div`
   text-align: center;
   font-family: "Amarante";
 
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+
   h2 {
     color: #011740;
     font-size: 1.3rem;
-    margin-bottom: 10px;
     padding: 10px;
+    margin: 0; /* importante */
   }
+
   p {
     color: #000;
     font-size: 0.9rem;
     line-height: 1.4;
-    
-  }
-  @media ${device.laptop}{
-  h2 {
-    font-size: 1.5rem;
-    padding: 20px;
-  }
-  p { 
-  font-size: 1rem;
+    margin: 0; /* importante */
   }
 
+  @media ${device.laptop} {
+    h2 {
+      font-size: 1.5rem;
+      padding: 20px;
+    }
+
+    p {
+      font-size: 1rem;
+    }
+  }
 `;
