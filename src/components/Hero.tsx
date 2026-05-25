@@ -27,6 +27,9 @@ const DesktopMenu = () => {
         <a href="#home">Home</a>
       </li>
       <li>
+        <a href="#Corto">Umbrío</a>
+      </li>
+      <li>
         <a href="#Locaciones">Locaciones</a>
       </li>
       <li>

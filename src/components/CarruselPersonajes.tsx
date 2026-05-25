@@ -156,7 +156,7 @@ const Pergamino = styled.div`
   @media ${device.laptop} {
     position: absolute;
     bottom: 30px;
-    right: 34% ;
+    right: 34%;
     width: 500px;
     height: 350px;
   }
