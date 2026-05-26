@@ -1,8 +1,9 @@
-import { Cortometraje } from "./components/Cortometraje";
 import { Hero } from "./components/Hero";
+import { Cortometraje } from "./components/Cortometraje";
 import { Locaciones } from "./components/Locations";
 import {Personajes}from "./components/Personajes";
 import { VideoJuego } from "./components/VideoJuego";
+import { Making} from "./components/Making";
 const App = () => {
   return (
     <>
@@ -11,6 +12,7 @@ const App = () => {
       <VideoJuego/>
       <Locaciones />
       <Personajes/>
+      <Making/>
     </>
   );
 };
