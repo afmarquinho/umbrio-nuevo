@@ -51,7 +51,23 @@
 
 body {
   margin: 0;
+  -ms-overflow-style: none;
 }
+html, body {
+  overflow-x: hidden;
+}
+
+/* Chrome, Edge, Safari */
+body::-webkit-scrollbar {
+  width: 0px;
+}
+
+/* Firefox */
+html {
+  scrollbar-width: none;
+}
+
+
 
 h1,
 h2,
@@ -91,3 +107,4 @@ h3 {
     margin: 10px auto;
   }
 }
+

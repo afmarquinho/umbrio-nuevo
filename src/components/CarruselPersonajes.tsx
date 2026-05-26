@@ -11,7 +11,7 @@ export const CarruselPersonajes = () => {
 
   return (
     <Contenedor>
-      <Titulo>PERSONAJES</Titulo>
+      
       <Miniaturas>
         {personajes.map((item, index) => (
           <Miniatura
@@ -46,25 +46,6 @@ const Contenedor = styled.section`
   height: 100vh;
 }
 `;
-
-const Titulo = styled.h1`
-  text-align: center;
-  color: #f4a009;
-  font-size: 1.8rem;
-  margin-bottom: 20px;
-  font-family: "Amarante";
-  
-
-  @media ${device.laptop} {
-  position: absolute;
-   font-size: 3rem;
-  top: 40px;
-  left: 50%;
-  transform: translateX(-50%);
-
-}
-`;
-
 const PersonajeGrande = styled.img`
   width: 70%;
   display: block;

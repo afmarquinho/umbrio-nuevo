@@ -1,21 +1,34 @@
 import styled from "styled-components";
 import { device } from "../pantallas/breakpoints";
+import fondo from "../assets/img/fondotextura.webp"
+import espectro from "../assets/img/espectro.webp"
+import { AnimatedButton } from "./AnimatedButton";
 
-export const VideoJuego = () => {
+export const Videojuego = () => {
   return (
     <VideoJuegoWrapper>
-      <h3>VideoJuego</h3>
-      <VideoJuegoButtonWrapper>
+      <UmbrioBg>UMBRÍO</UmbrioBg>
+      <CharacterBg>
+        <img src={espectro} alt="Espectro" />
+      </CharacterBg>
+      <Container>
+        <h2>VideoJuego</h2>
+
+        <AnimatedButton label1="Descargar" label2="VideoJuego" $absolute={true} />
+
+
+
+        {/* <div>
         <button>
-          Descargar
+        Descargar
           <br />
           <span>VideoJuego</span>
         </button>
-        <Shapes>
+        <div>
           <div className="shape shape1" />
           <div className="shape shape2" />
           <div className="shape shape3" />
-        </Shapes>
+        </div> */}
 
         {/* 
         <div className="particles">
@@ -39,21 +52,28 @@ export const VideoJuego = () => {
             ))}
           </div>
         </div> */}
-      </VideoJuegoButtonWrapper>
+        {/* </div> */}
+      </Container>
     </VideoJuegoWrapper>
   );
 };
 
 const VideoJuegoWrapper = styled.div`
-  background: #e6a5a5;
+  background: url(${fondo}) no-repeat center center;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  h3 {
-    background: var(--soft-bg);
-  }
+  position: relative;
+  &::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to bottom, rgb(0, 0, 0), transparent, rgba(0, 0, 0, 0.8));
+      z-index: 10;
+    }
+
   
   @media ${device.tablet} {
   }
@@ -64,42 +84,87 @@ const VideoJuegoWrapper = styled.div`
 `;
 
 
-const VideoJuegoButtonWrapper = styled.div`
-  margin: 20px auto;
-  text-align: center;
-  color: var(--accent);
-  font-size: 16px;
+
+const UmbrioBg = styled.div`
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
   align-items: center;
-  gap:20px;
-  button {
-    width: 200px;
-    padding: 20px;
-    background: var(--soft-bg);
-    border: 1px solid var(--accent);
-    border-radius: 8px;
-    border: none;
-    color: var(--accent);
-    font-size: 16px;
-    cursor: pointer;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  }
-`;
-const Shapes = styled.div`
+  justify-content: center;
+  font-size: 25rem;
+  font-weight: bold;
+  text-shadow: 0 0 20px rgba(255, 255, 255, 0.5); 
+  opacity: 0.5;
+  z-index: 100;
+  `
+const CharacterBg = styled.div`
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
   display: flex;
-  gap: 20px;
-  flex-direction: row;
+  align-items: flex-start;
   justify-content: center;
-  align-items: center;
-  .shape {
-    width: 50px;
-    height: 50px;
-    background: var(--accent);
-    border-radius: 50%;
+  z-index: 100;
+  overflow: hidden;
+  img {
+    width: 400px;
+    height: auto;
+    margin-top: 50px;
   }
-`;
+`
+const Container = styled.div`
+position: relative;
+width: 100%;
+height: 100%;
+  min-height: 100vh;
+z-index: 100;
+
+`
+
+
+
+
+// const VideoJuegoButtonWrapper = styled.div`
+//   margin: 20px auto;
+//   text-align: center;
+//   color: var(--accent);
+//   font-size: 16px;
+//   display: flex;
+//   flex-direction: column;
+//   justify-content: center;
+//   align-items: center;
+//   gap:20px;
+//   button {
+//     width: 200px;
+//     padding: 20px;
+//     background: var(--soft-bg);
+//     border: 1px solid var(--accent);
+//     border-radius: 8px;
+//     border: none;
+//     color: var(--accent);
+//     font-size: 16px;
+//     cursor: pointer;
+//     display: flex;
+//     flex-direction: column;
+//     justify-content: center;
+//     align-items: center;
+//   }
+// `;
+// const Shapes = styled.div`
+//   display: flex;
+//   gap: 20px;
+//   flex-direction: row;
+//   justify-content: center;
+//   align-items: center;
+//   .shape {
+//     width: 50px;
+//     height: 50px;
+//     background: var(--accent);
+//     border-radius: 50%;
+//   }
+// `;

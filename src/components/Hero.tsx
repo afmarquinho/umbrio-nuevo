@@ -2,8 +2,11 @@ import styled from "styled-components";
 import HeroBg from "../assets/img/banner.webp";
 import brujula from "../assets/img/brujula.webp";
 import sombreron from "../assets/img/sombreron_pose_espalda.webp";
+import niebla from "../assets/img/niebla.webp";
+
 import { useEffect, useState } from "react";
 import qr from "../assets/img/qr.webp";
+import { AnimatedButton } from "./AnimatedButton";
 
 //TODO: MENÚ, PASAR A COMPONENTE SEPARADO, HACERLO FUNCIONAL, AGREGAR ANIMACIONES
 
@@ -35,7 +38,7 @@ const DesktopMenu = () => {
       <li>
         <a href="#Personajes">Personajes</a>
       </li>
-      
+
     </DesktopMenuWrapper>
   );
 };
@@ -68,31 +71,9 @@ const Menu = () => {
 };
 
 export const Hero = () => {
-  const [particles, setParticles] = useState<
-    {
-      size: number;
-      startX: number;
-      startY: number;
-      moveX: number;
-      moveY: number;
-      duration: number;
-      delay: number;
-    }[]
-  >([]);
 
-  useEffect(() => {
-    const data = Array.from({ length: 25 }).map(() => ({
-      size: Math.random() * 4 + 2,
-      startX: Math.random() * 100,
-      startY: Math.random() * 100,
-      moveX: (Math.random() - 0.5) * 100,
-      moveY: (Math.random() - 0.5) * 100,
-      duration: Math.random() * 10 + 6,
-      delay: Math.random() * 5,
-    }));
 
-    setParticles(data);
-  }, []);
+  
 
   return (
     <HeroSeccion>
@@ -100,47 +81,21 @@ export const Hero = () => {
       <LogoWrapper>Umbrío</LogoWrapper>
 
       <SombreronImg src={sombreron} alt="Sombreron" />
+      <NieblaImg src={niebla} alt="Niebla" />
+      <Niebla2Img src={niebla} alt="Niebla2" />
 
       <TitleWrapper>
         <h1>Umbrío</h1>
         <p>El misterio ancetral de Tunja</p>
       </TitleWrapper>
-      <DownloadWrapperButton>
-        <div>
-          Descarga la app <br />
-          <span>Ahora</span>
-        </div>
-        <div>Disponible en ...</div>
-
-        <div className="particles">
-          <div className="particles">
-            {particles.map((p, i) => (
-              <Particle
-                key={i}
-                style={
-                  {
-                    width: `${p.size}px`,
-                    height: `${p.size}px`,
-                    left: `${p.startX}%`,
-                    top: `${p.startY * -1}px`,
-                    "--moveX": `${p.moveX}px`,
-                    "--moveY": `${p.moveY}px`,
-                    animationDuration: `${p.duration}s`,
-                    animationDelay: `${p.delay}s`,
-                  } as React.CSSProperties
-                }
-              />
-            ))}
-          </div>
-        </div>
-        <div className="scan" />
-      </DownloadWrapperButton>
-      <LegendWrapper>
+      <AnimatedButton label1="Descarga la app" label2="Ahora" label3="Disponible en App Store" $absolute={true}/>
+    
+      <StoryTextWrapper>
         <p>
           Adéntrate en la sombras de Tunja y descubre el poder de sus leyendas
           rurales hecha Cine{" "}
         </p>
-      </LegendWrapper>
+      </StoryTextWrapper>
       <RankingWrapper>
         <h2>9/10</h2>
       </RankingWrapper>
@@ -156,12 +111,19 @@ export const Hero = () => {
 const HeroSeccion = styled.section`
   position: relative;
   height: 100vh;
-  width: 100vw;
+  width: 100%;
   background-image: url(${HeroBg});
   background-size: cover;
   background-position: top;
   color: white;
-  overflow: hidden;
+  &::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to bottom, transparent 0, transparent 70%, #000000);
+      z-index: 10;
+    }
+
 `;
 
 const MobileMenuWrapper = styled.nav<{ $open: boolean }>`
@@ -255,11 +217,34 @@ const SombreronImg = styled.img`
   position: absolute;
   padding-top: 40px;
   top: 0;
-  left: 10%;
+  left: 20%;
   transform: translateX(-50%);
-  width: 900px;
+  width: 400px;
   height: auto;
 `;
+
+const NieblaImg = styled.img`
+  position: absolute;
+  bottom: -200px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 700px;
+  height: auto;
+  z-index: 100;
+  opacity: 0.5;
+  `;
+
+const Niebla2Img = styled.img`
+  position: absolute;
+  bottom: -150px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 1200px;
+  height: auto;
+  z-index: 100;
+`;
+
+
 const TitleWrapper = styled.div`
   position: absolute;
   top: 50%;
@@ -284,194 +269,9 @@ const TitleWrapper = styled.div`
   }
 `;
 
-const DownloadWrapperButton = styled.button`
-  position: absolute;
-  bottom: 40px;
-  left: 50%;
-  transform: translateX(-50%);
-  z-index: 500;
 
-  width: 260px;
-  padding: 22px;
-  border-radius: 32px;
-  border: none;
-  cursor: pointer;
-  overflow: hidden;
-  /* position: relative; */
-  text-align: center;
 
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-
-  /* =========================
-TEXTO
-  ========================== */
-  > div {
-    position: relative;
-    z-index: 4;
-    color: white;
-    line-height: 1.2;
-  }
-
-  > div:first-child {
-    font-size: 1.2rem;
-  }
-
-  > div:last-child {
-    font-size: 0.9rem;
-    opacity: 0.85;
-  }
-
-  span {
-    display: block;
-    margin-top: 4px;
-    font-weight: bold;
-    color: var(--accent);
-    text-transform: uppercase;
-    letter-spacing: 1px;
-  }
-
-  /* =========================
-    FONDO ENERGÍA
-  ========================== */
-  &::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    border-radius: 32px;
-
-    background: linear-gradient(
-      120deg,
-      #3a0044,
-      #720d82,
-      #c10dec,
-      #ff2ed1,
-      #720d82,
-      #3a0044
-    );
-
-    background-size: 400% 400%;
-    animation: energyFlow 8s ease infinite;
-
-    z-index: 0;
-  }
-
-  @keyframes energyFlow {
-    0% {
-      background-position: 0% 50%;
-    }
-    50% {
-      background-position: 100% 50%;
-    }
-    100% {
-      background-position: 0% 50%;
-    }
-  }
-
-  /* =========================
-    BORDE ENERGÉTICO
-  ========================== */
-  &::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    border-radius: 32px;
-    padding: 2px;
-
-    background: linear-gradient(
-      120deg,
-      transparent,
-      var(--accent),
-      #ffd700,
-      var(--accent),
-      transparent
-    );
-
-    background-size: 200% 200%;
-    animation: borderEnergy 3s linear infinite;
-
-    -webkit-mask:
-      linear-gradient(#000 0 0) content-box,
-      linear-gradient(#000 0 0);
-    -webkit-mask-composite: xor;
-    mask-composite: exclude;
-
-    z-index: 2;
-  }
-
-  @keyframes borderEnergy {
-    0% {
-      background-position: 0% 50%;
-    }
-    100% {
-      background-position: 200% 50%;
-    }
-  }
-
-  /* =========================
-SCAN LIGHT (clave gaming)
-  ========================== */
-  .scan {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 60%;
-    height: 100%;
-    background: linear-gradient(
-      120deg,
-      transparent,
-      rgba(255, 255, 255, 0.4),
-      transparent
-    );
-    transform: skewX(-20deg);
-    animation: scanMove 4s linear infinite;
-    z-index: 3;
-  }
-
-  @keyframes scanMove {
-    0% {
-      left: -100%;
-    }
-    100% {
-      left: 150%;
-    }
-  }
-
-  /* =========================
-    GLOW EXTERNO
-  ========================== */
-  box-shadow:
-    0 0 10px rgba(248, 163, 8, 0.4),
-    0 0 25px rgba(193, 13, 236, 0.3);
-
-  /* =========================
-     🖱 INTERACCIÓN
-  ========================== */
-  &:hover {
-    transform: translateX(-50%) scale(1.07);
-    box-shadow:
-      0 0 20px rgba(248, 163, 8, 0.7),
-      0 0 40px rgba(193, 13, 236, 0.6);
-  }
-
-  &:hover::before {
-    filter: brightness(1.3);
-  }
-
-  &:hover::after {
-    filter: blur(3px);
-  }
-
-  &:active {
-    transform: translateX(-50%) scale(0.97);
-  }
-
-  transition: all 0.25s ease;
-`;
-
-const LegendWrapper = styled.div`
+const StoryTextWrapper = styled.div`
   position: absolute;
   top: 40%;
   right: 40px;
@@ -535,32 +335,4 @@ const QRWrapper = styled.div`
   }
 `;
 
-const Particle = styled.span`
-  position: absolute;
-  left: 50%;
-  top: 50%;
 
-  background: radial-gradient(circle, #ff9ff9, #ff2eef);
-  border-radius: 50%;
-
-  opacity: 0.6;
-  filter: blur(0.6px);
-
-  animation: floatRandom linear infinite;
-
-  @keyframes floatRandom {
-    0% {
-      transform: translate(0, 0) scale(0.8);
-      opacity: 0;
-    }
-
-    20% {
-      opacity: 0.8;
-    }
-
-    100% {
-      transform: translate(var(--moveX), var(--moveY)) scale(1.2);
-      opacity: 0;
-    }
-  }
-`;
