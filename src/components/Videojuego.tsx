@@ -1,42 +1,70 @@
 import styled from "styled-components";
 import fondoJuego from "../assets/img/fondoJuego.webp"
-import sombreron from "../assets/img/sombreron.webp";
 import { device } from "../pantallas/breakpoints";
+import fondo from "../assets/img/fondotextura.webp"
+import espectro from "../assets/img/espectro.webp"
+import { AnimatedButton } from "./AnimatedButton";
 
-export const VideoJuego = () => {
+export const Videojuego = () => {
   return (
-    <VideoJuegoWrapper id = "Juego">
-      <CharacterImage src={sombreron} alt="Personaje videojuego" />
-      <h3>Video juego</h3>
 
-      <Info>
-        <p className="title">Atrevete a entrar en umbrío</p>
-        <p className="subtitle">
-          Sumérgete en el mundo de Umbrío y juega la historia desde dentro.
-        </p>
-      </Info>
+    <VideoJuegoWrapper>
+      <UmbrioBg>UMBRÍO</UmbrioBg>
+      <CharacterBg>
+        <img src={espectro} alt="Espectro" />
+      </CharacterBg>
+      <Container>
+        <h2>VideoJuego</h2>
 
-      <VideoJuegoButtonWrapper>
+        <AnimatedButton label1="Descargar" label2="VideoJuego" $absolute={true} />
+
+
+
+        {/* <div>
         <button>
-          ⬇ Descargar
+        Descargar
+
           <br />
           <span>Video juego</span>
         </button>
 
-        <Shapes>
+        <div>
           <div className="shape shape1" />
           <div className="shape shape2" />
           <div className="shape shape3" />
-        </Shapes>
-      </VideoJuegoButtonWrapper>
+        </div> */}
+
+        {/* 
+        <div className="particles">
+          <div className="particles">
+            {particles.map((p, i) => (
+              <Particle
+                key={i}
+                style={
+                  {
+                    width: `${p.size}px`,
+                    height: `${p.size}px`,
+                    left: `${p.startX}%`,
+                    top: `${p.startY * -1}px`,
+                    "--moveX": `${p.moveX}px`,
+                    "--moveY": `${p.moveY}px`,
+                    animationDuration: `${p.duration}s`,
+                    animationDelay: `${p.delay}s`,
+                  } as React.CSSProperties
+                }
+              />
+            ))}
+          </div>
+        </div> */}
+        {/* </div> */}
+      </Container>
+
     </VideoJuegoWrapper>
   );
 };
 
-
-const VideoJuegoWrapper = styled.section`
-  position: relative;
-  overflow: hidden;
+const VideoJuegoWrapper = styled.div`
+  background: url(${fondo}) no-repeat center center;
   min-height: 100vh;
 
   background-image:
@@ -55,21 +83,14 @@ const VideoJuegoWrapper = styled.section`
   justify-content: center;
   align-items: center;
 
-  padding: 40px 20px;
-
-  text-align: center;
-
-  gap: 40px;
-
-  h3 {
-  color: #f8a308;
-  font-size: 2.5rem;
-  font-family: "Amarante";
-  margin-bottom: 20px;
-  text-shadow:
-    0 0 10px rgba(248, 163, 8, 0.5),
-    0 0 30px rgba(102, 58, 143, 0.4);
-}
+  position: relative;
+  &::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to bottom, rgb(0, 0, 0), transparent, rgba(0, 0, 0, 0.8));
+      z-index: 10;
+    }
 
   
   @media ${device.laptop} {
@@ -79,122 +100,95 @@ const VideoJuegoWrapper = styled.section`
   }
 `;
 
-const CharacterImage = styled.img`
+
+
+
+
+const UmbrioBg = styled.div`
   position: absolute;
-  bottom: 0;
-  left: 50%;
-  transform: translateX(-50%);
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
 
-  width: 40%;
-  max-width: 600px;
-
-  pointer-events: none;
-  z-index: 1;
-  opacity: 0.95;
-
-  @media ${device.tablet} {
-    width: 38%;
-  }
-
-  /* 👇 DESKTOP: mover a la derecha y agrandar */
-  @media ${device.laptop} {
-    left: auto;
-    right: 40px; /* o el valor que encaje con tu layout */
-
-    transform: none;
-
-    width: 45%;
-    max-width: 750px;
-  }
-`;
-
-
-  const Info = styled.div`
-  text-align: center;
-  color: #f8a308;
-  margin-top: 20px;
-
-  .title {
-    font-size: 1.4rem;
-    font-weight: bold;
-  }
-
-  .subtitle {
-    font-size: 1rem;
-    opacity: 0.8;
-    max-width: 500px;
-    margin: 10px auto;
-  }
-`;
-
-const VideoJuegoButtonWrapper = styled.div`
-  margin: 20px auto;
-  text-align: center;
-  color: #f8a308;
-  font-size: 16px;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
   align-items: center;
-  gap:20px;
-  
-   button {
-  width: 240px;
-  padding: 22px;
 
-  background:
-    linear-gradient(
-      135deg,
-      #663a8f,
-      #2a163d
-    );
-
-  border: 2px solid #f8a308;
-  border-radius: 14px;
-
-  color: #f8a308;
-
-  font-size: 1rem;
-  font-family: "Amarante";
-
-  cursor: pointer;
-
-  transition: all 0.35s ease;
-
-  box-shadow:
-    0 0 15px rgba(248, 163, 8, 0.25),
-    0 0 40px rgba(102, 58, 143, 0.25);
-
-  &:hover {
-    transform: translateY(-4px) scale(1.05);
-
-    box-shadow:
-      0 0 20px rgba(248, 163, 8, 0.5),
-      0 0 60px rgba(102, 58, 143, 0.5);
-  }
-
-  span {
-    font-weight: bold;
-    letter-spacing: 2px;
-    font-size: 1.1rem;
-  }
-}
-`;
-const Shapes = styled.div`
+  justify-content: center;
+  font-size: 25rem;
+  font-weight: bold;
+  text-shadow: 0 0 20px rgba(255, 255, 255, 0.5); 
+  opacity: 0.5;
+  z-index: 100;
+  `
+const CharacterBg = styled.div`
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+>>>>>>> origin/main
   display: flex;
-  gap: 20px;
-  flex-direction: row;
+  align-items: flex-start;
   justify-content: center;
-  align-items: center;
-  .shape {
-    width: 14px;
-    height: 14px;
-    opacity: 0.6;
-    background: #f8a308;
-    box - shadow: 0 0 10px rgba(248, 163, 8, 0.6);
-    border-radius: 50%;
+
+  z-index: 100;
+  overflow: hidden;
+  img {
+    width: 400px;
+    height: auto;
+    margin-top: 50px;
   }
-`;
+`
+const Container = styled.div`
+position: relative;
+width: 100%;
+height: 100%;
+  min-height: 100vh;
+z-index: 100;
+
+`
 
 
+
+
+// const VideoJuegoButtonWrapper = styled.div`
+//   margin: 20px auto;
+//   text-align: center;
+//   color: var(--accent);
+//   font-size: 16px;
+//   display: flex;
+//   flex-direction: column;
+//   justify-content: center;
+//   align-items: center;
+//   gap:20px;
+//   button {
+//     width: 200px;
+//     padding: 20px;
+//     background: var(--soft-bg);
+//     border: 1px solid var(--accent);
+//     border-radius: 8px;
+//     border: none;
+//     color: var(--accent);
+//     font-size: 16px;
+//     cursor: pointer;
+//     display: flex;
+//     flex-direction: column;
+//     justify-content: center;
+//     align-items: center;
+//   }
+// `;
+// const Shapes = styled.div`
+//   display: flex;
+//   gap: 20px;
+//   flex-direction: row;
+//   justify-content: center;
+//   align-items: center;
+//   .shape {
+//     width: 50px;
+//     height: 50px;
+//     background: var(--accent);
+//     border-radius: 50%;
+//   }
+// `;
 

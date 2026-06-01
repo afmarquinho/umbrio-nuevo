@@ -1,18 +1,21 @@
 import { Hero } from "./components/Hero";
 import { Cortometraje } from "./components/Cortometraje";
-import { Locaciones } from "./components/Locations";
 import {Personajes}from "./components/Personajes";
-import { VideoJuego } from "./components/VideoJuego";
+import { Videojuego } from "./components/Videojuego";
 import { Making} from "./components/Making";
+// import { Locaciones } from "./components/Locations"
+
+
 const App = () => {
   return (
     <>
       <Hero />
-      <Cortometraje/>
-      <VideoJuego/>
-      <Locaciones />
+      <Cortometraje />
+      <Videojuego />
       <Personajes/>
       <Making/>
+
+      {/* <Locaciones /> */}
     </>
   );
 };
