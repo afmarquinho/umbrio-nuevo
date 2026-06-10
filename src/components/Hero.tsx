@@ -1,79 +1,15 @@
 import styled from "styled-components";
 import HeroBg from "../assets/img/banner.webp";
-import brujula from "../assets/img/brujula.webp";
+import {Menu} from "../components/Menu";
 import sombreron from "../assets/img/sombreron_pose_espalda.webp";
 import niebla from "../assets/img/niebla.webp";
 
-import { useEffect, useState } from "react";
+
 import qr from "../assets/img/qr.webp";
 import { AnimatedButton } from "./AnimatedButton";
 
-//TODO: MENÚ, PASAR A COMPONENTE SEPARADO, HACERLO FUNCIONAL, AGREGAR ANIMACIONES
-
-const MobileMenu = () => {
-  const [open, setOpen] = useState<boolean>(false);
-
-  return (
-    <>
-      <MobileMenuWrapper $open={open}>MENU</MobileMenuWrapper>
-
-      <MenuButtonWrapper onClick={() => setOpen(!open)}>
-        <img src={brujula} alt="Menu Icon" />
-      </MenuButtonWrapper>
-    </>
-  );
-};
-const DesktopMenu = () => {
-  return (
-    <DesktopMenuWrapper>
-      <li>
-        <a href="#home">Home</a>
-      </li>
-      <li>
-        <a href="#Corto">Umbrío</a>
-      </li>
-      <li>
-        <a href="#Locaciones">Locaciones</a>
-      </li>
-      <li>
-        <a href="#Personajes">Personajes</a>
-      </li>
-
-    </DesktopMenuWrapper>
-  );
-};
-
-const Menu = () => {
-  const useIsMobile = () => {
-    const [isMobile, setIsMobile] = useState<boolean>(
-      window.matchMedia("(max-width: 639px)").matches,
-    );
-
-    useEffect(() => {
-      const mediaQuery = window.matchMedia("(max-width: 639px)");
-      const handleResize = () => setIsMobile(mediaQuery.matches);
-
-      //Si da problemas cambiar la logica, porqi matchMedia no es tan compatible con navegadores viejos
-      mediaQuery.addEventListener("change", handleResize);
-      window.addEventListener("resize", handleResize);
-      return () => mediaQuery.removeEventListener("change", handleResize);
-    }, []);
-
-    return isMobile;
-  };
-
-  const isMobile = useIsMobile();
-
-  if (isMobile) {
-    return <MobileMenu />;
-  }
-  return <DesktopMenu />;
-};
 
 export const Hero = () => {
-
-
-  
 
   return (
     <HeroSeccion>
@@ -126,79 +62,6 @@ const HeroSeccion = styled.section`
 
 `;
 
-const MobileMenuWrapper = styled.nav<{ $open: boolean }>`
-  position: fixed;
-  top: 0;
-  left: 0;
-
-  width: 100%;
-  height: 100vh;
-    // Esta variable soft viene el index.css,establecido como variable
-  background-color: var(--soft-bg);
-  backdrop-filter: blur(10px);
-
-  z-index: 1000;
-
-  transform: translateX(100%);
-  opacity: 0;
-  pointer-events: none;
-
-  transition:
-    transform 0.5s cubic-bezier(0.77, 0, 0.175, 1),
-    opacity 0.3s ease;
-  transform: ${(props) => props.$open && "translateX(0)"};
-  opacity: ${(props) => props.$open && 1};
-  /* pointer-events: ${(props) => props.$open && "auto"}; */
-`;
-
-const MenuButtonWrapper = styled.button`
-  position: fixed;
-  top: 20px;
-  right: 20px;
-  z-index: 1100;
-
-  background-color: transparent;
-  cursor: pointer;
-
-  width: 50px;
-  height: 50px;
-  padding: 0;
-  overflow: hidden;
-
-  img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-    transition: transform 0.4s ease;
-  }
-
-  &:hover img {
-    transform: rotate(20deg) scale(1.1);
-  }
-
-  &:active img {
-    transform: scale(0.9);
-  }
-`;
-
-const DesktopMenuWrapper = styled.nav`
-  position: absolute;
-  top: 20px;
-  width: 800px;
-  padding: 15px 20px;
-  z-index: 1000;
-  left: 50%;
-  transform: translateX(-50%);
-  border: 1px solid var(--accent);
-  border-radius: 10px;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: var(--soft-bg);
-  backdrop-filter: blur(10px);
-`;
 
 // TODO: Cambiar la etiqueta h1 por la imagen del logo final
 const LogoWrapper = styled.div`

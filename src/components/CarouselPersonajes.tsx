@@ -4,85 +4,130 @@ import { personajes } from "../data/personajesData";
 import pergamino from "../assets/img/pergamino1.webp"
 import { device } from "../pantallas/breakpoints";
 
-export const CarruselPersonajes = () => {
+export const CarouselPersonajes = () => {
   const [activo, setActivo] = useState(0);
 
   const personaje = personajes[activo];
 
-  return (
-    <Contenedor>
-      
-      <Miniaturas>
-        {personajes.map((item, index) => (
-          <Miniatura
-            key={index}
-            src={item.miniatura}
-            $activo={index === activo}
-            onClick={() => setActivo(index)}
-          />
-        ))}
-      </Miniaturas>
+ return (
+  <Contenedor>
+    <Titulo>PERSONAJES</Titulo>
+    <Contenido>
 
-      <Contenido>
-        <Pergamino>
-          <Texto>
-            <h2>{personaje.nombre}</h2>
-            <p>{personaje.descripcion}</p>
-          </Texto>
-        </Pergamino>
+      <ZonaMovil>
+        <Miniaturas>
+          {personajes.map((item, index) => (
+            <Miniatura
+              key={index}
+              src={item.miniatura}
+              $activo={index === activo}
+              onClick={() => setActivo(index)}
+            />
+          ))}
+        </Miniaturas>
+
         <PersonajeGrande src={personaje.personajeGrande} />
-      </Contenido>
-    </Contenedor>
-  );
+      </ZonaMovil>
+
+      <Pergamino>
+        <Texto>
+          <h2>{personaje.nombre}</h2>
+          <p>{personaje.descripcion}</p>
+        </Texto>
+      </Pergamino>
+
+    </Contenido>
+  </Contenedor>
+);
 };
 
 const Contenedor = styled.section`
-  width: 100%;
-  min-height: 100vh;
+  width: 100%;   
   padding: 20px;
-
+  box-sizing: border-box;
+ 
   @media ${device.laptop} {
   position: relative;
   height: 100vh;
 }
 `;
+const Titulo = styled.h1`
+  position: relative;
+  text-align: center;
+  color: #f4a009;
+  font-size: 1.8rem;
+  margin-bottom: 20px;
+  margin-top: 20px;
+  font-family: "Amarante";
+  z-index: 3;
+
+  @media ${device.laptop} {
+  position: absolute;
+   font-size: 3rem;
+  top: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+
+}
+`;
+
+ const ZonaMovil = styled.div`
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 12px;
+ 
+  @media ${device.laptop} {
+    display: contents;
+  }
+`;
+
 const PersonajeGrande = styled.img`
-  width: 70%;
+  order: 1;
+  width: min(50vw, 180px);
+  max-height: 45vh;
   display: block;
   margin: 0 auto;
 
+  object-fit: contain;
+
+
   @media ${device.laptop} {
+  order: 2;
   position: absolute;
   right: 90px;
   bottom: 0;
-  height: 100%;
+   max-height: none; /* importante */
+  height: 80%;
   width: auto;
 }
+
    @media ${device.desktop} {
   right: 40px;
-  
+}
 `;
 
 const Miniaturas = styled.div`
-  display: grid;
-  grid-template-columns: repeat(3, 1fr); /* 3 arriba */
-  gap: 10px;
-
-  margin: 20px auto;
-  width: 90%;
-  justify-items: center;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin: 0;
 
   @media ${device.laptop} {
-  position: absolute;
-  top: 150px;
-  left: 90px;
-  width: auto;
-}
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+
+    position: absolute;
+    top: 150px;
+    left: 90px;
+    width: auto;
+    gap:20px;
+  }
 `;
 
 const Miniatura = styled.img<{ $activo: boolean }>`
-  width: 55px;
-  height: 55px;
+  width: 40px;
+  height: 40px;
   border-radius: 50%;
 
   border: ${({ $activo }) =>
@@ -102,6 +147,7 @@ const Contenido = styled.div`
   display: flex;
   flex-direction: column;   /* móvil */
   align-items: center;
+  gap: 10px;
 
   @media ${device.laptop} {
     flex-direction: row;   /* desktop */
@@ -111,8 +157,9 @@ const Contenido = styled.div`
 `;
 
 const Pergamino = styled.div`
+  order: 2;
   width: 90%;
-  max-width: 400px;
+  max-width: 300px;
 
   aspect-ratio: 3 / 2;
 
@@ -135,23 +182,14 @@ const Pergamino = styled.div`
   }
 
   @media ${device.laptop} {
+    order: 1;
     position: absolute;
+    max-width: none;
     bottom: 30px;
-    right: 34%;
+    right: 400px;
     width: 500px;
     height: 350px;
   }
-
-  @media ${device.desktop} {
-  max-width: none;
-
-  bottom: clamp(10px, 1.5vh, 30px);
-
-  right: 38%;
-
-  width: 600px;
-  height: 400px;
-}
 `;
 
 const Texto = styled.div`
@@ -165,15 +203,15 @@ const Texto = styled.div`
 
   h2 {
     color: #011740;
-    font-size: 1.3rem;
+    font-size: 1.1rem;
     padding: 10px;
     margin: 0; /* importante */
   }
 
   p {
     color: #000;
-    font-size: 0.9rem;
-    line-height: 1.4;
+    font-size: 0.8rem;
+    line-height: 1.3;
     margin: 0; /* importante */
   }
 

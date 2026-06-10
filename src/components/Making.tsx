@@ -18,7 +18,7 @@ export const Making = () => {
   return (
     <MakingContenedor id="Making">
 
-      <Titulo>Making Off</Titulo>
+      <Titulo>MAKING OFF</Titulo>
 
       <VideoContainer>
         <StyledVideo

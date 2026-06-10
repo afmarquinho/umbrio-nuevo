@@ -7,7 +7,7 @@ import { AnimatedButton } from "./AnimatedButton";
 
 export const Cortometraje = () => {
   return (
-    <CortoWrapper className={``}>
+    <CortoWrapper id ="Corto">
       {/* Se coloca la capa de contenido para que quede por encima del fondo degradado  y el filtro gris */}
       <Container>
 
@@ -78,9 +78,8 @@ display: flex;
 flex-direction: column;
 align-items: center;
 justify-content: center;
-`
 
-
+`;
 
 const TrailerWrapper = styled.div`
   margin-top: 40px;

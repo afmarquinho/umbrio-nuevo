@@ -8,7 +8,7 @@ import { AnimatedButton } from "./AnimatedButton";
 export const Videojuego = () => {
   return (
 
-    <VideoJuegoWrapper>
+    <VideoJuegoWrapper id = "Juego">
       <UmbrioBg>UMBRÍO</UmbrioBg>
       <CharacterBg>
         <img src={espectro} alt="Espectro" />
