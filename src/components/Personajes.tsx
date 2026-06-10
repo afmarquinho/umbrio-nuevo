@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { CarruselPersonajes} from "../components/CarruselPersonajes";
+import { CarouselPersonajes } from "./CarouselPersonajes";
 //import { useMenu } from "../context/MenuContext";
 import { VideoLscModal } from "./ui/VideoLscModal";
 //import { BotonLsc } from "./ui/BotonLsc";
@@ -14,9 +14,7 @@ export const Personajes = () => {
   return (
     <PersonajesWrapper id = "Personajes">
       <Container>
-        <h2>Personajes</h2>
-
-      <CarruselPersonajes />
+      <CarouselPersonajes />
 
       {showModal && (
         <VideoLscModal
@@ -38,7 +36,7 @@ const PersonajesWrapper = styled.section`
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding: 100px 20px;
+    padding: 20px;
     position: relative;
     /* Fondo con filtro de escala de grises */
       &::before {

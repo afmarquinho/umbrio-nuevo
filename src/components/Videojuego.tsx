@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import fondoJuego from "../assets/img/fondoJuego.webp"
 import { device } from "../pantallas/breakpoints";
 import fondo from "../assets/img/fondotextura.webp"
 import espectro from "../assets/img/espectro.webp"
@@ -6,7 +7,8 @@ import { AnimatedButton } from "./AnimatedButton";
 
 export const Videojuego = () => {
   return (
-    <VideoJuegoWrapper>
+
+    <VideoJuegoWrapper id = "Juego">
       <UmbrioBg>UMBRÍO</UmbrioBg>
       <CharacterBg>
         <img src={espectro} alt="Espectro" />
@@ -21,9 +23,11 @@ export const Videojuego = () => {
         {/* <div>
         <button>
         Descargar
+
           <br />
-          <span>VideoJuego</span>
+          <span>Video juego</span>
         </button>
+
         <div>
           <div className="shape shape1" />
           <div className="shape shape2" />
@@ -54,6 +58,7 @@ export const Videojuego = () => {
         </div> */}
         {/* </div> */}
       </Container>
+
     </VideoJuegoWrapper>
   );
 };
@@ -61,10 +66,23 @@ export const Videojuego = () => {
 const VideoJuegoWrapper = styled.div`
   background: url(${fondo}) no-repeat center center;
   min-height: 100vh;
+
+  background-image:
+    linear-gradient(
+      rgba(0,0,0,0.65),
+      rgba(0,0,0,0.85)
+    ),
+    url(${fondoJuego});
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
+
   position: relative;
   &::after {
       content: "";
@@ -75,13 +93,14 @@ const VideoJuegoWrapper = styled.div`
     }
 
   
-  @media ${device.tablet} {
-  }
   @media ${device.laptop} {
-  }
-  @media ${device.desktop} {
+   h3 {
+     font-size: 4rem;
+   }
   }
 `;
+
+
 
 
 
@@ -91,8 +110,10 @@ const UmbrioBg = styled.div`
   height: 100%;
   top: 0;
   left: 0;
+
   display: flex;
   align-items: center;
+
   justify-content: center;
   font-size: 25rem;
   font-weight: bold;
@@ -106,9 +127,11 @@ const CharacterBg = styled.div`
   height: 100%;
   top: 0;
   left: 0;
+>>>>>>> origin/main
   display: flex;
   align-items: flex-start;
   justify-content: center;
+
   z-index: 100;
   overflow: hidden;
   img {
@@ -168,3 +191,4 @@ z-index: 100;
 //     border-radius: 50%;
 //   }
 // `;
+
