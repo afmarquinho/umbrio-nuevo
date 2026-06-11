@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import HeroBg from "../assets/img/banner.webp";
-import {Menu} from "../components/Menu";
+import { Menu } from "../components/Menu";
 import sombreron from "../assets/img/sombreron_pose_espalda.webp";
 import niebla from "../assets/img/niebla.webp";
 
@@ -24,8 +24,8 @@ export const Hero = () => {
         <h1>Umbrío</h1>
         <p>El misterio ancetral de Tunja</p>
       </TitleWrapper>
-      <AnimatedButton label1="Descarga la app" label2="Ahora" label3="Disponible en App Store" $absolute={true}/>
-    
+      <AnimatedButton label1="Descarga la app" label2="Ahora" label3="Disponible en App Store" $absolute={true} />
+
       <StoryTextWrapper>
         <p>
           Adéntrate en la sombras de Tunja y descubre el poder de sus leyendas
@@ -48,7 +48,7 @@ const HeroSeccion = styled.section`
   position: relative;
   height: 100vh;
   width: 100%;
-  background-image: url(${HeroBg});
+  background-image: url(${HeroBg}); 
   background-size: cover;
   background-position: top;
   color: white;
