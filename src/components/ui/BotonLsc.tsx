@@ -27,7 +27,7 @@ const StyleBoton = styled.button<{ $visible: boolean }>`
   justify-content: center;
   align-items: center;
   border-radius: 10px;
-  background-color: #9431c0;
+ background: linear-gradient(0deg, #8808a0, #a407c4, #4d0059);
   color: #f6e9c7;
   font-family: "Amarante";
   border: 2px solid #f4a009;

@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { device } from "../pantallas/breakpoints";
 import { useEffect, useState } from "react";
 
 export const AnimatedButton = ({ label1, label2, label3, $absolute=false }: { label1: string; label2: string; label3?: string; $absolute?: boolean }) => {
@@ -65,14 +66,23 @@ export const AnimatedButton = ({ label1, label2, label3, $absolute=false }: { la
 
 const DownloadWrapperButton = styled.button<{ $absolute?: boolean }>`
     position: ${({ $absolute }) => ($absolute ? "absolute" : "relative")};
-    bottom: ${({ $absolute }) => ($absolute ? "40px" : "auto")};
+   bottom: ${({ $absolute }) => ($absolute ? "20px" : "auto")};
+
+   @media ${device.tablet} {
+    bottom: ${({ $absolute }) => ($absolute ? "30px" : "auto")};
+ }
+
+  @media ${device.laptop} {
+  bottom: ${({ $absolute }) => ($absolute ? "40px" : "auto")};
+ }
+   
     left: ${({ $absolute }) => ($absolute ? "50%" : "auto")};
     transform: ${({ $absolute }) =>
         $absolute ? "translateX(-50%)" : "none"};
     
-    width: 260px;
+    width: min(220px, 90vw);
     z-index: 500;
-    padding: 22px;
+    padding: 16px;
     border-radius: 32px;
     border: none;
     cursor: pointer;
@@ -83,6 +93,16 @@ const DownloadWrapperButton = styled.button<{ $absolute?: boolean }>`
     display: flex;
     flex-direction: column;
     gap: 6px;
+
+  @media ${device.tablet} {
+    width: 240px;
+    padding: 18px;
+  }
+
+  @media ${device.laptop} {
+    width: 260px;
+    padding: 22px;
+  }
 
   /* =========================
 TEXTO
@@ -95,13 +115,28 @@ TEXTO
   }
 
   > div:first-child {
-    font-size: 1.2rem;
+    font-size: 1rem;
+
+    @media ${device.tablet} {
+     font-size: 1.1rem;
   }
 
-  > div:last-child {
-    font-size: 0.9rem;
-    opacity: 0.85;
+    @media ${device.laptop} {
+     font-size: 1.2rem;
   }
+}
+
+  > div:last-child {
+    font-size: 0.75rem;
+    opacity: 0.85;
+  @media ${device.tablet} {
+    font-size: 0.85rem;
+  }
+
+  @media ${device.laptop} {
+    font-size: 0.9rem;
+  }
+}
 
   span {
     display: block;

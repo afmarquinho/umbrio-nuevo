@@ -56,9 +56,9 @@ const DesktopMenu = () => {
   return (
     <DesktopMenuWrapper>
     <ul>
-      <li><a href="#home">Home</a></li>
+      <li> <a href="#home">Home</a></li>
       <li> <a href="#Corto">Umbrío</a></li>
-       <li> <a href="#Juego">Juego</a></li>
+      <li> <a href="#Juego">Juego</a></li>
       <li> <a href="#Locaciones">Locaciones</a></li>
       <li> <a href="#Personajes">Personajes</a> </li>
       <li> <a href="#Making">Making</a> </li>
@@ -91,7 +91,7 @@ const MobileMenuWrapper = styled.nav<{ $open: boolean }>`
 
   width: 100%;
   height: 100vh;
-    // Esta variable soft viene el index.css,establecido como variable
+    // Esta variable soft viene del index.css,establecido como variable
   background-color: var(--soft-bg);
   backdrop-filter: blur(10px);
 
@@ -99,7 +99,7 @@ const MobileMenuWrapper = styled.nav<{ $open: boolean }>`
 
   transform: translateX(100%);
   opacity: 0;
-  pointer-events: none;
+
 
   transition:
     transform 0.5s cubic-bezier(0.77, 0, 0.175, 1),
@@ -107,6 +107,26 @@ const MobileMenuWrapper = styled.nav<{ $open: boolean }>`
   transform: ${(props) => props.$open && "translateX(0)"};
   opacity: ${(props) => props.$open && 1};
   /* pointer-events: ${(props) => props.$open && "auto"}; */
+
+  ul {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+a {
+  color: var(--accent);
+  text-decoration: none;
+  font-size: 1.5rem;
+  font-weight: 600;
+}
 `;
 
 
@@ -115,6 +135,7 @@ const MenuButtonWrapper = styled.button`
   top: 20px;
   right: 20px;
   z-index: 1100;
+  border: none;
 
   background-color: transparent;
   cursor: pointer;
@@ -140,6 +161,7 @@ const MenuButtonWrapper = styled.button`
     transform: scale(0.9);
   }
 `;
+
 
 /*const DesktopMenuWrapper = styled.nav`
   position: absolute;
@@ -178,8 +200,8 @@ const DesktopMenuWrapper = styled.nav`
   align-items: center;
   justify-content: center;
 
-  background: var(--soft-bg);
-  backdrop-filter: blur(10px);
+   background: linear-gradient(0deg, #8808a0, #a407c4, #4d0059);
+
 
   ul {
     display: flex;
