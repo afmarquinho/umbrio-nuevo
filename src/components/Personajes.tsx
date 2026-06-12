@@ -11,7 +11,7 @@ export const Personajes = () => {
   const [showModal, setShowModal] = useState(true);
   //const { menuAbierto } = useMenu();
   return (
-    <PersonajesWrapper>
+    <PersonajesWrapper id = "Personajes">
       <Container>
         <Titulo>PERSONAJES</Titulo>
         <CarouselPersonajes />

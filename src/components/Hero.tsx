@@ -1,18 +1,20 @@
+import React from "react";
 import styled from "styled-components";
 import HeroBg from "../assets/img/banner.webp";
 import { Menu } from "../components/Menu";
 import sombreron from "../assets/img/sombreron_pose_espalda.webp";
 import niebla from "../assets/img/niebla.webp";
-
+import { device } from "../pantallas/breakpoints";
 
 import qr from "../assets/img/qr.webp";
 import { AnimatedButton } from "./AnimatedButton";
 
-
-export const Hero = () => {
-
+type HeroProps = {
+    heroRef: React.RefObject<HTMLElement | null>;
+};
+export const Hero = ({ heroRef }: HeroProps) => {
   return (
-    <HeroSeccion>
+    <HeroSeccion ref={heroRef}>
       <Menu />
       <LogoWrapper>Umbrío</LogoWrapper>
 
@@ -62,7 +64,6 @@ const HeroSeccion = styled.section`
 
 `;
 
-
 // TODO: Cambiar la etiqueta h1 por la imagen del logo final
 const LogoWrapper = styled.div`
   position: absolute;
@@ -78,12 +79,27 @@ const LogoWrapper = styled.div`
 
 const SombreronImg = styled.img`
   position: absolute;
-  padding-top: 40px;
-  top: 0;
-  left: 20%;
+   height: auto;
+  top: 80px;
+  left: 50%;
   transform: translateX(-50%);
-  width: 400px;
+
+  width: 260px;
   height: auto;
+
+  @media ${device.tablet} {
+    width: 320px;
+  }
+
+  @media ${device.laptop} {
+    width: 400px;
+  }
+   @media ${device.desktop} {  
+    top: 0;
+    left: 20%;
+    padding-top: 40px;
+  
+}
 `;
 
 const NieblaImg = styled.img`
@@ -116,7 +132,7 @@ const TitleWrapper = styled.div`
   text-align: center;
   z-index: 500;
   h1 {
-    font-size: 5rem;
+    font-size: 3rem;
     text-transform: uppercase;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
     color: var(--accent);
@@ -124,57 +140,113 @@ const TitleWrapper = styled.div`
     font-family: "Arial Black", sans-serif;
   }
   p {
-    font-size: 1.5rem;
+    font-size: 1rem;
     margin-top: 20px;
     text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
     color: var(--accent);
     font-family: "Arial", sans-serif;
   }
+
+  @media ${device.tablet} {
+    h1 {
+      font-size: 4rem;
+    }
+
+    p {
+      font-size: 1.2rem;
+    }
+  }
+
+  @media ${device.laptop} {
+    h1 {
+      font-size: 5rem;
+      margin-bottom: 50px;
+    }
+
+    p {
+      font-size: 1.5rem;
+      margin-top: 0;
+    }
+  }
 `;
-
-
 
 const StoryTextWrapper = styled.div`
   position: absolute;
-  top: 40%;
-  right: 40px;
-  transform: translateY(-50%);
+  top: 65%;
+  left: 50%;
+  transform: translateX(-50%);
+
+  width: 85%;
   text-align: center;
+
   z-index: 500;
   font-family: "Arial", sans-serif;
-  width: 370px;
   color: white;
   p {
-    font-size: 1.2rem;
+    font-size: 1rem;
     margin: 0;
     text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
     color: var(--accent);
     font-family: "Arial", sans-serif;
   }
+
+  @media ${device.laptop} {
+    top: 40%;
+    right: 40px;
+    left: auto;
+    transform: translateY(-50%);
+    width: 370px;
+
+    p {
+      font-size: 1.2rem;
+    }
+  }
 `;
 
-//Rankin, ubicacion izquierda-abajo
 
 const RankingWrapper = styled.div`
   position: absolute;
-  bottom: 40px;
-  left: 40px;
+
+  top: 75%;
+  left: 50%;
+  transform: translateX(-50%);
+  
   text-align: center;
   z-index: 500;
   font-family: "Arial", sans-serif;
+  
   width: 100px;
+
   color: var(--accent);
-  background: var(--soft-bg);
+  background: linear-gradient(0deg, #8808a0, #a407c4, #4d0059);
   border: 1px solid var(--accent);
   border-radius: 10px;
   padding: 10px;
+
   text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
   h2 {
-    font-size: 1.5rem;
+    font-size: 1rem;
+  }
+  
+  @media ${device.laptop} {
+    
+    top: auto;
+    bottom: 40px;
+    left: 40px;
+    transform: none;
+    h2 {
+      font-size: 1.5rem;
+    }
   }
 `;
+
+
 //Mismo estilo que el botón de descarga pero con un tamaño más pequeño y sin el efecto de brillo al pasar el mouse, además de un fondo semitransparente para que resalte sobre el fondo del banner.
 const QRWrapper = styled.div`
+display: none;
+
+  @media ${device.laptop} {
+  display: block;
   position: absolute;
   bottom: 40px;
   right: 40px;
@@ -189,7 +261,7 @@ const QRWrapper = styled.div`
   border-radius: 10px;
   padding: 5px;
   text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
-
+}
   img {
     width: 100%;
     height: 100%;
