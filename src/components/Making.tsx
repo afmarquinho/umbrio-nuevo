@@ -48,7 +48,7 @@ const MakingContenedor = styled.section`
     position: relative;
     width: 100%;
     min-height: 100vh;
-
+    box-sizing: border-box;
      padding: 40px 16px;
 
      background-image: url(${fondo_making});
@@ -70,6 +70,18 @@ const MakingContenedor = styled.section`
     padding: 80px 60px;
   }
 `;
+
+
+
+
+
+
+
+
+
+
+
+
 
 const Titulo = styled.h1`
    text-align: center;

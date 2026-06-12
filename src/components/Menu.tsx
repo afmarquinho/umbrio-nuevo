@@ -41,6 +41,11 @@ const MobileMenu = () => {
         Making
       </a>
     </li>
+    <li>
+      <a href="#Equipo" onClick={() => setOpen(false)}>
+        Equipo
+      </a>
+    </li>
   </ul>
 </MobileMenuWrapper>
 
@@ -62,6 +67,7 @@ const DesktopMenu = () => {
       <li> <a href="#Locaciones">Locaciones</a></li>
       <li> <a href="#Personajes">Personajes</a> </li>
       <li> <a href="#Making">Making</a> </li>
+      <li> <a href="#Equipo">Equipo</a> </li>
     </ul>
     </DesktopMenuWrapper>
   );

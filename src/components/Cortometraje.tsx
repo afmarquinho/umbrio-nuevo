@@ -7,7 +7,7 @@ import { AnimatedButton } from "./AnimatedButton";
 
 export const Cortometraje = () => {
   return (
-    <CortoWrapper id ="Corto">
+    <CortoWrapper>
       {/* Se coloca la capa de contenido para que quede por encima del fondo degradado  y el filtro gris */}
       <Container>
 
@@ -21,7 +21,7 @@ export const Cortometraje = () => {
 
 
         </StoryText>
-        <AnimatedButton label1="Ver cortometraje" label2="Completo" $absolute={false}/>
+        <AnimatedButton label1="Ver cortometraje" label2="Completo" $absolute={false} />
       </Container>
     </CortoWrapper>
   )
@@ -35,17 +35,18 @@ const CortoWrapper = styled.section`
   justify-content: center;
   padding: 100px 20px;
   position: relative;
+  background-color:red;
   /* Fondo con filtro de escala de grises */
     &::before {
     content: "";
     position: absolute;
     inset: 0;
 
-    background-image: url(${fondo});
+   background-image: url(${fondo});
     background-size: cover;
     background-position: top;
 
-    filter: grayscale(100%);
+    filter: grayscale(100%); 
 
     z-index: 0;
   }
@@ -54,7 +55,7 @@ const CortoWrapper = styled.section`
       content: "";
       position: absolute;
       inset: 0;
-      background: linear-gradient(to bottom, rgb(0, 0, 0), transparent, rgba(0, 0, 0, 0.8));
+      background: linear-gradient(to bottom, rgb(0, 0, 0), transparent, rgb(0, 0, 0) );
       z-index: 10;
     }
 
@@ -78,7 +79,6 @@ display: flex;
 flex-direction: column;
 align-items: center;
 justify-content: center;
-
 `;
 
 const TrailerWrapper = styled.div`
@@ -110,7 +110,6 @@ const StoryText = styled.p`
   text-align: center;
   font-size: 1.2rem;
   line-height: 1.6;
-  color: white;
   @media (max-width: 768px) {
     font-size: 1rem;
   }

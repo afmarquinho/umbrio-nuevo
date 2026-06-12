@@ -15,37 +15,37 @@ import simonMini from "../assets/personajes/simon.webp";
 export const personajes = [
   {
     nombre: "NOAH",
-    descripcion: "Lorem ipsum es un texto de relleno estándar utilizado en diseño gráfico, editorial y web para previsualizar maquetas (layouts) y tipografías antes de insertar el contenido definitivo. Derivado de un texto en latín de Cicerón (45 a.C.), se modifica para que no tenga sentido coherente, permitiendo enfocar la atención en el diseño visual y no en la lectura.",
+    descripcion: "Lorem ipsum es un texto de relleno estándar utilizado en diseño gráfico, editorial y web para previsualizar maquetas (layouts) y tipografías antes de insertar el contenido definitivo. Derivado de un texto en latín de Cicerón (45 a.C.).",
     personajeGrande: noah,
     miniatura: noahMini,
   },
   {
     nombre: "SIMON",
-    descripcion: "Lorem ipsum es un texto de relleno estándar utilizado en diseño gráfico, editorial y web para previsualizar maquetas (layouts) y tipografías antes de insertar el contenido definitivo. Derivado de un texto en latín de Cicerón (45 a.C.), se modifica para que no tenga sentido coherente, permitiendo enfocar la atención en el diseño visual y no en la lectura.",
+    descripcion: "Lorem ipsum es un texto de relleno estándar utilizado en diseño gráfico, editorial y web para previsualizar maquetas (layouts) y tipografías antes de insertar el contenido definitivo. Derivado de un texto en latín de Cicerón (45 a.C.).",
     personajeGrande:simon,
     miniatura:simonMini ,
   },
   {
     nombre: "EL SOMBRERÓN",
-    descripcion: "Lorem ipsum es un texto de relleno estándar utilizado en diseño gráfico, editorial y web para previsualizar maquetas (layouts) y tipografías antes de insertar el contenido definitivo. Derivado de un texto en latín de Cicerón (45 a.C.), se modifica para que no tenga sentido coherente, permitiendo enfocar la atención en el diseño visual y no en la lectura.",
+    descripcion: "Lorem ipsum es un texto de relleno estándar utilizado en diseño gráfico, editorial y web para previsualizar maquetas (layouts) y tipografías antes de insertar el contenido definitivo. Derivado de un texto en latín de Cicerón (45 a.C.).",
     personajeGrande: sombreron,
     miniatura: sombreronMini,
   },
   {
     nombre: "MANO PELUDA",
-    descripcion: "Lorem ipsum es un texto de relleno estándar utilizado en diseño gráfico, editorial y web para previsualizar maquetas (layouts) y tipografías antes de insertar el contenido definitivo. Derivado de un texto en latín de Cicerón (45 a.C.), se modifica para que no tenga sentido coherente, permitiendo enfocar la atención en el diseño visual y no en la lectura.",
+    descripcion: "Lorem ipsum es un texto de relleno estándar utilizado en diseño gráfico, editorial y web para previsualizar maquetas (layouts) y tipografías antes de insertar el contenido definitivo. Derivado de un texto en latín de Cicerón (45 a.C.).",
     personajeGrande: mano,
     miniatura:manoMini ,
   },
   {
    nombre: "PERRO DE SAN FRANCISCO",
-    descripcion: "Lorem ipsum es un texto de relleno estándar utilizado en diseño gráfico, editorial y web para previsualizar maquetas (layouts) y tipografías antes de insertar el contenido definitivo. Derivado de un texto en latín de Cicerón (45 a.C.), se modifica para que no tenga sentido coherente, permitiendo enfocar la atención en el diseño visual y no en la lectura.",
+    descripcion: "Lorem ipsum es un texto de relleno estándar utilizado en diseño gráfico, editorial y web para previsualizar maquetas (layouts) y tipografías antes de insertar el contenido definitivo. Derivado de un texto en latín de Cicerón (45 a.C.).",
     personajeGrande:perro,
     miniatura: perroMini,
   },
   {
     nombre: "ESPANTO DEL PANÓTICO",
-    descripcion: "Lorem ipsum es un texto de relleno estándar utilizado en diseño gráfico, editorial y web para previsualizar maquetas (layouts) y tipografías antes de insertar el contenido definitivo. Derivado de un texto en latín de Cicerón (45 a.C.), se modifica para que no tenga sentido coherente, permitiendo enfocar la atención en el diseño visual y no en la lectura.",
+    descripcion: "Lorem ipsum es un texto de relleno estándar utilizado en diseño gráfico, editorial y web para previsualizar maquetas (layouts) y tipografías antes de insertar el contenido definitivo. Derivado de un texto en latín de Cicerón (45 a.C.).",
     personajeGrande: espanto,
     miniatura:espantoMini,
   }

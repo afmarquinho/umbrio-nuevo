@@ -53,8 +53,16 @@ body {
   margin: 0;
   -ms-overflow-style: none;
 }
-html, body {
+html,
+body {
   overflow-x: hidden;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+  margin: 0;
 }
 
 /* Chrome, Edge, Safari */
@@ -67,44 +75,35 @@ html {
   scrollbar-width: none;
 }
 
-
-
 h1,
 h2,
-h3 {
+h3,
+h4 {
   font-family: var(--heading);
+  margin: 0;
 }
 
 h2 {
   font-size: 20px;
-  letter-spacing: -0.24px;
+  letter-spacing: 0.24px;
   font-weight: 500;
   text-transform: uppercase;
   text-align: center;
   font-weight: 900;
   color: var(--accent);
-  width: 90%;
-  max-width: 1200px;
-  margin: 10px auto;
   @media (min-width: 768px) {
     font-size: 56px;
     line-height: 118%;
-    margin: 20px auto;
   }
 }
 
 h3 {
   font-size: 20px;
-  letter-spacing: -0.24px;
+  letter-spacing: 0.24px;
   font-weight: 500;
   text-transform: uppercase;
-  width: 90%;
-  max-width: 1200px;
-  margin: 10px auto;
   @media (min-width: 768px) {
     font-size: 36px;
     line-height: 118%;
-    margin: 10px auto;
   }
 }
-

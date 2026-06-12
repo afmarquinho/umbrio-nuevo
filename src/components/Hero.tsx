@@ -1,6 +1,7 @@
+import React from "react";
 import styled from "styled-components";
 import HeroBg from "../assets/img/banner.webp";
-import {Menu} from "../components/Menu";
+import { Menu } from "../components/Menu";
 import sombreron from "../assets/img/sombreron_pose_espalda.webp";
 import niebla from "../assets/img/niebla.webp";
 import { device } from "../pantallas/breakpoints";
@@ -8,11 +9,12 @@ import { device } from "../pantallas/breakpoints";
 import qr from "../assets/img/qr.webp";
 import { AnimatedButton } from "./AnimatedButton";
 
-
-export const Hero = () => {
-
+type HeroProps = {
+    heroRef: React.RefObject<HTMLElement | null>;
+};
+export const Hero = ({ heroRef }: HeroProps) => {
   return (
-    <HeroSeccion>
+    <HeroSeccion ref={heroRef}>
       <Menu />
       <LogoWrapper>Umbrío</LogoWrapper>
 
@@ -24,8 +26,8 @@ export const Hero = () => {
         <h1>Umbrío</h1>
         <p>El misterio ancetral de Tunja</p>
       </TitleWrapper>
-      <AnimatedButton label1="Descarga la app" label2="Ahora" label3="Disponible en App Store" $absolute={true}/>
-    
+      <AnimatedButton label1="Descarga la app" label2="Ahora" label3="Disponible en App Store" $absolute={true} />
+
       <StoryTextWrapper>
         <p>
           Adéntrate en la sombras de Tunja y descubre el poder de sus leyendas
@@ -48,7 +50,7 @@ const HeroSeccion = styled.section`
   position: relative;
   height: 100vh;
   width: 100%;
-  background-image: url(${HeroBg});
+  background-image: url(${HeroBg}); 
   background-size: cover;
   background-position: top;
   color: white;
@@ -158,10 +160,12 @@ const TitleWrapper = styled.div`
   @media ${device.laptop} {
     h1 {
       font-size: 5rem;
+      margin-bottom: 50px;
     }
 
     p {
       font-size: 1.5rem;
+      margin-top: 0;
     }
   }
 `;
